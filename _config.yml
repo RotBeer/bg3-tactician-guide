@@ -7,6 +7,11 @@ theme: jekyll-theme-cayman
 plugins:
   - jekyll-relative-links
 
+# GitHub Pages는 jekyll-readme-index를 강제로 켠다.
+# index.html이 인덱스를 맡으므로 README.md는 일반 페이지로 렌더돼야 한다.
+readme_index:
+  enabled: false
+
 relative_links:
   enabled: true
   collections: false
