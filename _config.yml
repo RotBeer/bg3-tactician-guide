@@ -1,0 +1,23 @@
+title: 발더스게이트 3 공략 노트
+description: 전술가 난이도 · 명예 모드 기준 파티 구성
+lang: ko
+
+theme: jekyll-theme-cayman
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-readme-index
+
+relative_links:
+  enabled: true
+  collections: false
+
+readme_index:
+  remove_originals: false
+  with_frontmatter: true
+
+exclude:
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor

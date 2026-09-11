@@ -1,0 +1,42 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* 표가 많은 문서라 본문 폭을 넓힌다 */
+.main-content {
+  max-width: 78rem;
+}
+
+/* 넓은 표는 가로 스크롤, 본문은 절대 가로로 밀리지 않게 */
+.main-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  font-size: 0.95rem;
+}
+
+.main-content table th,
+.main-content table td {
+  white-space: normal;
+  word-break: keep-all;
+}
+
+/* 상단 문서 간 이동 링크 줄 */
+.main-content blockquote:first-of-type {
+  border-left: 0;
+  padding: 0.4rem 0;
+  color: #606c71;
+  font-size: 0.95rem;
+}
+
+/* 체크리스트 */
+.main-content ul li input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+@media screen and (max-width: 42em) {
+  .main-content table {
+    font-size: 0.85rem;
+  }
+}
