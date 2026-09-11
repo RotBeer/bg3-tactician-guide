@@ -1,3 +1,7 @@
+---
+permalink: /README.html
+---
+
 # 발더스게이트 3 공략 노트
 
 전술가(Tactician) 난이도를 **명예(Honour) 모드 기준**으로 운용하기 위한 파티 구성 문서입니다.
