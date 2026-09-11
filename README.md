@@ -11,12 +11,26 @@
 
 | 파일 | 내용 | 언제 보나 |
 |---|---|---|
-| **[bg3-tactician-build.md](bg3-tactician-build.md)** | **본문** — 파티 구성, 캐릭터별 빌드, 레벨업, 아이템, 운영, 획득 절차 | 플레이 중 |
+| **[index.html](index.html)** | **대시보드** — 같은 내용을 한 화면에 밀도 있게. 다크 모드 기본 | **플레이 중 (권장)** |
+| [bg3-tactician-build.md](bg3-tactician-build.md) | 본문 — 파티 구성, 빌드, 레벨업, 아이템, 운영, 보스, 획득 절차 | 원문·검색·diff |
 | [GLOSSARY.md](GLOSSARY.md) | 영문/한글 용어 대조 사전 | 게임 표기와 문서가 안 맞을 때 |
 | [CORRECTIONS.md](CORRECTIONS.md) | 정정 내역 — 무엇이 왜 틀렸는지 | 정보 신뢰도를 확인할 때 |
 | [SOURCES.md](SOURCES.md) | 출처 목록 | 원문을 직접 확인할 때 |
 
-**플레이할 때는 본문만 보면 됩니다.** 나머지 셋은 참고용입니다.
+`index.html`과 `bg3-tactician-build.md`는 **같은 내용**입니다. 편집은 md에서 하고 html에 반영하세요.
+
+### 대시보드 사용법
+
+QHD(2560×1440) / FHD(1920×1080) 데스크톱 전용입니다. 모바일은 고려하지 않았습니다.
+
+| 조작 | 동작 |
+|---|---|
+| `1` ~ `6` | 탭 전환 — 파티 / 레벨업 / 아이템 / 획득 절차 / 운영 / 보스 |
+| `/` | 검색 포커스 — 현재 탭의 카드를 걸러냅니다 |
+| `Esc` | 검색 해제 |
+| `d` | 다크 ↔ 라이트 전환 (`localStorage`에 저장) |
+| `#party` `#boss` … | 탭 딥링크 |
+| `?theme=light` | 테마 강제 (스크린샷·공유용) |
 
 ---
 
@@ -32,9 +46,26 @@ LLM 질의 → 내용 확정 → 내용 검증 → md 작성 → (요청 시) ht
 | **2. 내용 확정** | 방향과 범위를 결정한다. 이 단계에서 "안 쓸 것"도 같이 정한다 | 결정 사항 |
 | **3. 내용 검증** | **bg3.wiki 원문과 대조**하고 각 항목에 등급을 매긴다. 2차 출처만으로는 확정하지 않는다 | ✔/▲/※ 등급 |
 | **4. md 작성** | 본문은 build, 용어는 GLOSSARY, 정정은 CORRECTIONS, 출처는 SOURCES로 분리해 기록 | .md 파일 |
-| **5. html 수정** | **요청이 있을 때만** 수행. Pages 렌더링·레이아웃·테마 조정 | `_config.yml`, `assets/` |
+| **5. html 수정** | **요청이 있을 때만** 수행. 대시보드 레이아웃·테마 조정 후 **검증 에이전트로 시각 검증** | `index.html`, `assets/` |
 
 > 3단계를 건너뛴 내용은 문서에 넣지 않습니다. 이 규칙이 생긴 경위는 [CORRECTIONS.md](CORRECTIONS.md) 참고.
+
+### 5단계의 시각 검증
+
+`index.html`을 고친 뒤에는 **HTML 소스를 보지 않고 렌더링 화면만 보는 검증 에이전트**를 붙입니다. 작성자가 자기 코드를 보면서 판단하면 "의도한 대로 보일 것"이라고 착각하기 때문입니다.
+
+헤드리스 Chrome으로 캡처합니다. **한 번에 하나씩** 실행하고, PNG는 비동기로 쓰이므로 **다음 호출에서** 확인하세요.
+
+```bash
+"/c/Program Files/Google/Chrome/Application/chrome.exe" \
+  --headless=new --no-sandbox --disable-gpu --hide-scrollbars \
+  --force-device-scale-factor=1 --virtual-time-budget=3000 \
+  --window-size=2560,1440 --user-data-dir="<임시경로>\pA" \
+  --screenshot="<임시경로>\qhd-party.png" \
+  "file:///C:/study/bal/index.html#party"
+```
+
+`--window-size`를 주면 **페이지 전체 높이**가 캡처되므로, 이미지 높이 ÷ 1440 으로 "몇 화면 분량인지"를 바로 측정할 수 있습니다.
 
 ---
 
@@ -70,9 +101,10 @@ GitHub Pages로 정적 사이트를 게시합니다. Jekyll이 `.md`를 자동�
 main 브랜치 push → GitHub Pages 자동 빌드 → 공개 URL
 ```
 
-- 테마·레이아웃 설정: `_config.yml`
-- 진입점: 이 README가 사이트 첫 페이지가 됩니다
-- 문서 간 링크는 상대 경로(`.md`)로 쓰면 Pages가 `.html`로 자동 변환합니다
+- **진입점은 `index.html`** (대시보드). 이 README는 `README.html`로 접근합니다
+- `index.html`은 front matter가 없어 Jekyll이 **그대로 복사**합니다 — 테마 영향을 받지 않습니다
+- `.md` 문서의 테마·레이아웃 설정: `_config.yml` (cayman) + `assets/css/style.scss`
+- `.md` 안의 상대 링크는 Pages가 `.html`로 자동 변환합니다. `index.html` 안에서는 `.html`을 직접 씁니다
 
 ### 갱신
 

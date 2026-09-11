@@ -12,6 +12,7 @@
 - [Helm of Balduran](https://bg3.wiki/wiki/Helm_of_Balduran) · [The Wyrmway](https://bg3.wiki/wiki/The_Wyrmway) · [Hellrider's Pride](https://bg3.wiki/wiki/Hellrider%27s_Pride)
 - [Adamantine Splint Armour](https://bg3.wiki/wiki/Adamantine_Splint_Armour) · [Adamantine Scale Mail](https://bg3.wiki/wiki/Adamantine_Scale_Mail) · [Risky Ring](https://bg3.wiki/wiki/Risky_Ring) · [Callous Glow Ring](https://bg3.wiki/wiki/Callous_Glow_Ring)
 - [Amulet of Greater Health](https://bg3.wiki/wiki/Amulet_of_Greater_Health) · [Markoheshkir](https://bg3.wiki/wiki/Markoheshkir) · [Mirror of Loss](https://bg3.wiki/wiki/Mirror_of_Loss) · [Resonance Stone](https://bg3.wiki/wiki/Resonance_Stone) · [Belm](https://bg3.wiki/wiki/Belm)
+- **보스**: [Ketheric Thorm](https://bg3.wiki/wiki/Ketheric_Thorm) · [Apostle of Myrkul](https://bg3.wiki/wiki/Apostle_of_Myrkul) · [Cazador/Combat](https://bg3.wiki/wiki/Cazador_Szarr/Combat) · [Orin/Combat](https://bg3.wiki/wiki/Orin/Combat) · [Gortash/Combat](https://bg3.wiki/wiki/Enver_Gortash/Combat) · [Raphael/Combat](https://bg3.wiki/wiki/Raphael/Combat) · [Netherbrain/Combat](https://bg3.wiki/wiki/The_Netherbrain/Combat) · [Nere](https://bg3.wiki/wiki/Nere) · [Phase Spider Matriarch](https://bg3.wiki/wiki/Phase_Spider_Matriarch)
 - [Haste](https://bg3.wiki/wiki/Haste) · [Lethargic](https://bg3.wiki/wiki/Lethargic_(Condition))
 
 **한글 표기 (나무위키)**
